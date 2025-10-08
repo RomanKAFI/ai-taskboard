@@ -1,94 +1,139 @@
 AI-TaskBoard
 
-Task management SaaS built with Java + Spring Boot, PostgreSQL, Docker, and CI/CD pipeline.
+AI-TaskBoard is a modern SaaS platform for task and team management, built with Java 17 + Spring Boot, PostgreSQL, Docker, and GitHub Actions.
 
-🚀 Overview
+It provides a clean, reliable, and scalable backend for small teams, startups, and freelancers who need an efficient project tracking system without enterprise-level complexity.
 
-AI-TaskBoard is a task management platform designed as a full-stack SaaS prototype.
-The goal of the project is to demonstrate modern backend development practices, including:
+🚀 Key Features
 
-REST API with Spring Boot
+Create, update, and delete tasks
 
-PostgreSQL relational schema with indexing & normalization
+Status workflow: To Do → In Progress → Done
 
-Dockerized deployment
+Assign users and manage responsibilities
 
-GitHub Actions for CI/CD
+Priorities and due dates
 
-AI-assisted development patterns for scaling
+JWT authentication and roles (coming soon)
 
-🛠 Tech Stack
+PostgreSQL database with Flyway migrations
 
-Backend: Java 17, Spring Boot
+Docker & docker-compose support
 
-Database: PostgreSQL (JPA/Hibernate, schema migrations)
+Continuous Integration and Deployment via GitHub Actions
 
-DevOps: Docker, Docker Compose, GitHub Actions (CI/CD)
+Unit and integration testing with JUnit 5
 
-Testing: JUnit, Postman API tests
-
-Other: Agile practices, REST APIs, Unit Testing, AI-assisted code generation
-
-📂 Features
-
-Create / Update / Delete tasks
-
-Organize tasks by status (To Do, In Progress, Done)
-
-Assign tasks to different users
-
-Basic authentication & authorization
-
-Persistent storage with PostgreSQL
-
-Docker-ready for deployment
-
-CI/CD pipeline for automated testing & deployment
-
-📦 Project Structure (planned)
-ai-taskboard/
-├── src/main/java/com/romankafi/taskboard   # Backend source
-├── src/test/java/com/romankafi/taskboard   # Unit & integration tests
-├── docker/                                 # Dockerfile & configs
-├── pom.xml                                 # Maven build config
+🧱 Project Architecture
+ai-taskboard
+├── src/main/java/com/romankafi/taskboard
+│   ├── TaskboardApplication.java
+│   ├── config/ controller/ dto/ entity/ repository/ service/
+│   └── mapper/
+├── src/main/resources/db/migration/
+├── docker/Dockerfile
+├── docker/docker-compose.yml
+├── .github/workflows/ci.yml
+├── .gitignore
+├── pom.xml
 └── README.md
 
-🔧 Setup & Run
-
-Clone repository:
-
+🔌 REST API
+Method	Endpoint	Description
+GET	/api/v1/health	Health check
+GET	/api/v1/tasks	Get all tasks with filters
+GET	/api/v1/tasks/{id}	Get task by ID
+POST	/api/v1/tasks	Create a new task
+PUT	/api/v1/tasks/{id}	Update task
+PATCH	/api/v1/tasks/{id}	Change status
+DELETE	/api/v1/tasks/{id}	Delete task
+GET	/api/v1/users	List users
+⚙️ Quick Start
 git clone https://github.com/RomanKAFI/ai-taskboard.git
 cd ai-taskboard
+./mvnw clean install
+./mvnw spring-boot:run
 
 
-Build with Maven:
+Check: http://localhost:8080/api/v1/health
 
-mvn clean install
+Swagger UI (if enabled): http://localhost:8080/swagger-ui
 
+🐳 Run with Docker
+docker compose up --build
+docker compose down -v
 
-Run locally:
+🔐 Environment Variables
+SPRING_PROFILES_ACTIVE=dev
+SERVER_PORT=8080
+DB_HOST=postgres
+DB_PORT=5432
+DB_NAME=taskboard
+DB_USER=taskboard
+DB_PASSWORD=taskboard
+JWT_SECRET=change-me
+JWT_TTL_MINUTES=60
 
-mvn spring-boot:run
+💰 Monetization & Billing
 
+AI-TaskBoard uses a subscription-based SaaS model powered by Stripe API.
 
-Run with Docker (coming soon).
+Plan	Users	Features	Price
+Free	1 project / up to 5 tasks	Core features	$0
+Pro	up to 5 users	Unlimited tasks, priority support	$8 / month
+Team	up to 20 users	SSO, backups	$29 / month
+Enterprise	Unlimited	SLA, integrations, custom features	Custom pricing
 
-✅ Roadmap
+Stripe integration supports Checkout Sessions, Webhooks, free trials (14 days), and automatic subscription renewals.
 
- Create project repository with README, license, gitignore
+🤖 AI Features
 
- Add base Spring Boot application
+Automatic task description generation (NLP)
 
- Implement REST endpoints for tasks
+Intelligent task prioritization and due-date prediction
 
- Add PostgreSQL schema & persistence
+Productivity analytics & team insights
 
- Dockerize application
+Smart recommendations (under development)
 
- Set up CI/CD with GitHub Actions
+🔁 CI/CD Pipeline
 
- Deploy demo instance
+Automatic build & test on every push
+
+Maven cache and dependency audit
+
+Ready for production deployment via GitHub Actions + Docker Hub
+
+🗺 Roadmap
+
+ REST API + DB migrations
+
+ Docker + CI/CD
+
+ JWT authentication & roles
+
+ Swagger / Postman collection
+
+ Stripe integration
+
+ AI-powered analytics
+
+ Public demo deployment
+
+⚙️ Requirements
+
+Java 17+
+
+Maven 3.9+
+
+Docker Desktop
+
+🤝 Contributing
+
+Pull requests are welcome!
+Follow conventional commits, include tests, and provide clear descriptions of changes.
 
 📜 License
 
-MIT License — free to use and modify.
+Proprietary License — All rights reserved © 2025 Roman Kafitulin.
+This software is proprietary and may not be used, copied, modified, or distributed without prior written permission from the author.
