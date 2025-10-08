@@ -24,19 +24,28 @@ Continuous Integration and Deployment via GitHub Actions
 
 Unit and integration testing with JUnit 5
 
-🧱 Project Architecture
+🧱 Project Structure
 ai-taskboard
-├── src/main/java/com/romankafi/taskboard
-│   ├── TaskboardApplication.java
-│   ├── config/ controller/ dto/ entity/ repository/ service/
-│   └── mapper/
-├── src/main/resources/db/migration/
-├── docker/Dockerfile
-├── docker/docker-compose.yml
-├── .github/workflows/ci.yml
+├── src/
+│   ├── main/java/com/romankafi/taskboard/
+│   │   ├── TaskboardApplication.java
+│   │   ├── config/
+│   │   ├── controller/
+│   │   ├── dto/
+│   │   ├── entity/
+│   │   ├── repository/
+│   │   ├── service/
+│   │   └── mapper/
+│   └── main/resources/db/migration/
+├── docker/
+│   ├── Dockerfile
+│   └── docker-compose.yml
+├── .github/
+│   └── workflows/ci.yml
 ├── .gitignore
 ├── pom.xml
-└── README.md
+├── README.md
+└── LICENSE
 
 🔌 REST API
 Method	Endpoint	Description
